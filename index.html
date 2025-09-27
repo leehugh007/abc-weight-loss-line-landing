@@ -249,20 +249,7 @@
             text-align: center;
         }
         
-        .qr-placeholder {
-            width: 160px;
-            height: 160px;
-            background: #f8f9fa;
-            border: 2px dashed #ced6e0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            color: #74b9ff;
-            font-size: 13px;
-            font-weight: 600;
-        }
+
         
         .alternative-cta {
             background: linear-gradient(135deg, #4CAF50, #45a049);
@@ -425,11 +412,10 @@
                     <p>如果你是用電腦看這個頁面，可以用手機掃描QR Code</p>
                     <button class="qr-toggle" onclick="toggleQR()">📱 顯示QR Code</button>
                     <div class="qr-code" id="qrCode">
-                        <div class="qr-placeholder">
-                            QR Code<br>
-                            (請替換為實際的QR Code圖片)
-                        </div>
-                        <p style="font-size: 12px; color: #666;">用手機相機掃描即可加入</p>
+                        <img src="https://qr-official.line.me/gs/M_621tkxhy_GW.png?oat__id=5794455&oat_content=qr" 
+                             alt="LINE官方QR Code" 
+                             style="width: 180px; height: 180px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <p style="font-size: 12px; color: #666; margin-top: 10px;">用手機相機掃描即可加入</p>
                     </div>
                 </div>
             </div>
