@@ -191,6 +191,20 @@
             margin: 10px 0;
         }
         
+        .id-display {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            border: 2px solid #4CAF50;
+            margin: 12px 0;
+            color: #2e7d32;
+            letter-spacing: 1px;
+        }
+        
         .copy-btn {
             background: linear-gradient(135deg, #4CAF50, #45a049);
             color: white;
@@ -400,7 +414,14 @@
                 </div>
                 
                 <div class="backup-method">
-                    <h4>方法三：掃描QR Code</h4>
+                    <h4>方法三：搜尋 LINE ID</h4>
+                    <p>打開 LINE App → 主頁上方「搜尋」→ 輸入下方 ID → 點擊加入</p>
+                    <div class="id-display">@sososo</div>
+                    <button class="copy-btn" onclick="copyID()">📋 複製 ID</button>
+                </div>
+                
+                <div class="backup-method">
+                    <h4>方法四：掃描QR Code</h4>
                     <p>如果你是用電腦看這個頁面，可以用手機掃描QR Code</p>
                     <button class="qr-toggle" onclick="toggleQR()">📱 顯示QR Code</button>
                     <div class="qr-code" id="qrCode">
@@ -454,7 +475,7 @@
             
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(link).then(function() {
-                    showToast();
+                    showToast('✅ 連結已複製到剪貼簿！');
                 });
             } else {
                 const textArea = document.createElement('textarea');
@@ -463,13 +484,39 @@
                 textArea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textArea);
-                showToast();
+                showToast('✅ 連結已複製到剪貼簿！');
             }
             
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'click', {
                     'event_category': 'Backup',
                     'event_label': 'Copy Link'
+                });
+            }
+        }
+        
+        // 複製LINE ID功能
+        function copyID() {
+            const lineID = '@sososo';
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(lineID).then(function() {
+                    showToast('✅ LINE ID 已複製！打開LINE搜尋貼上即可');
+                });
+            } else {
+                const textArea = document.createElement('textarea');
+                textArea.value = lineID;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast('✅ LINE ID 已複製！打開LINE搜尋貼上即可');
+            }
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'event_category': 'Backup',
+                    'event_label': 'Copy LINE ID'
                 });
             }
         }
@@ -496,13 +543,16 @@
         }
         
         // 顯示提示訊息
-        function showToast() {
+        function showToast(message) {
             const toast = document.getElementById('toast');
+            if (message) {
+                toast.textContent = message;
+            }
             toast.classList.add('show');
             
             setTimeout(function() {
                 toast.classList.remove('show');
-            }, 2500);
+            }, 3000);
         }
         
         // 頁面載入完成後的初始化
