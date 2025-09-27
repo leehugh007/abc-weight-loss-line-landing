@@ -6,15 +6,13 @@
     <title>加入一休健康瘦身官方LINE - 解決連結問題</title>
     <meta name="description" content="無法加入LINE？這裡提供多種方式幫您成功加入一休健康瘦身官方帳號">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0SGGGHDW1Q"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-0SGGGHDW1Q');
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5MPSHX7K');</script>
+    <!-- End Google Tag Manager -->
     
     <style>
         * {
@@ -363,6 +361,11 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MPSHX7K"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <div class="container">
         <div class="header">
             <h1>🌟 一休健康瘦身官方LINE</h1>
@@ -445,7 +448,9 @@
     <script>
         // 追蹤官方CTA點擊
         document.getElementById('officialCTA').addEventListener('click', function() {
-            gtag('event', 'click_official_line_button', {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'click_official_line_button',
                 'event_category': 'LINE_Join',
                 'event_label': 'Official_Button',
                 'page_type': 'Landing_Page'
@@ -455,7 +460,9 @@
         
         // 追蹤備用CTA點擊
         document.getElementById('alternativeCTA').addEventListener('click', function() {
-            gtag('event', 'click_alternative_line_button', {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'click_alternative_line_button',
                 'event_category': 'LINE_Join',
                 'event_label': 'Alternative_Button',
                 'page_type': 'Landing_Page'
@@ -481,7 +488,9 @@
                 showToast('✅ 連結已複製到剪貼簿！');
             }
             
-            gtag('event', 'copy_line_link', {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'copy_line_link',
                 'event_category': 'Backup_Method',
                 'event_label': 'Copy_Link',
                 'page_type': 'Landing_Page'
@@ -506,7 +515,9 @@
                 showToast('✅ LINE ID 已複製！打開LINE搜尋貼上即可');
             }
             
-            gtag('event', 'copy_line_id', {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'copy_line_id',
                 'event_category': 'Backup_Method',
                 'event_label': 'Copy_ID',
                 'page_type': 'Landing_Page'
@@ -522,7 +533,9 @@
                 qrCode.style.display = 'block';
                 button.textContent = '🙈 隱藏QR Code';
                 
-                gtag('event', 'show_qr_code', {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'show_qr_code',
                     'event_category': 'Backup_Method',
                     'event_label': 'Show_QR',
                     'page_type': 'Landing_Page'
@@ -548,14 +561,17 @@
         
         // 頁面載入完成後的初始化
         document.addEventListener('DOMContentLoaded', function() {
-            gtag('event', 'page_view', {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'page_view',
                 'page_title': 'LINE_Landing_Page_Problem_Solver',
                 'page_location': window.location.href,
                 'page_type': 'Landing_Page'
             });
             
             // 追蹤頁面載入完成
-            gtag('event', 'landing_page_loaded', {
+            window.dataLayer.push({
+                'event': 'landing_page_loaded',
                 'event_category': 'Page_Interaction',
                 'event_label': 'Page_Load_Complete',
                 'page_type': 'Landing_Page'
