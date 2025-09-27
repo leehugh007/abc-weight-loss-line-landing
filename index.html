@@ -6,6 +6,16 @@
     <title>加入一休健康瘦身官方LINE - 解決連結問題</title>
     <meta name="description" content="無法加入LINE？這裡提供多種方式幫您成功加入一休健康瘦身官方帳號">
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0SGGGHDW1Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0SGGGHDW1Q');
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -435,23 +445,21 @@
     <script>
         // 追蹤官方CTA點擊
         document.getElementById('officialCTA').addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'CTA',
-                    'event_label': 'Official LINE Button'
-                });
-            }
+            gtag('event', 'click_official_line_button', {
+                'event_category': 'LINE_Join',
+                'event_label': 'Official_Button',
+                'page_type': 'Landing_Page'
+            });
             console.log('Official LINE button clicked');
         });
         
         // 追蹤備用CTA點擊
         document.getElementById('alternativeCTA').addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'CTA',
-                    'event_label': 'Alternative LINE Button'
-                });
-            }
+            gtag('event', 'click_alternative_line_button', {
+                'event_category': 'LINE_Join',
+                'event_label': 'Alternative_Button',
+                'page_type': 'Landing_Page'
+            });
             console.log('Alternative LINE button clicked');
         });
         
@@ -473,12 +481,11 @@
                 showToast('✅ 連結已複製到剪貼簿！');
             }
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'Backup',
-                    'event_label': 'Copy Link'
-                });
-            }
+            gtag('event', 'copy_line_link', {
+                'event_category': 'Backup_Method',
+                'event_label': 'Copy_Link',
+                'page_type': 'Landing_Page'
+            });
         }
         
         // 複製LINE ID功能
@@ -499,12 +506,11 @@
                 showToast('✅ LINE ID 已複製！打開LINE搜尋貼上即可');
             }
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'Backup',
-                    'event_label': 'Copy LINE ID'
-                });
-            }
+            gtag('event', 'copy_line_id', {
+                'event_category': 'Backup_Method',
+                'event_label': 'Copy_ID',
+                'page_type': 'Landing_Page'
+            });
         }
         
         // 顯示/隱藏QR Code
@@ -516,12 +522,11 @@
                 qrCode.style.display = 'block';
                 button.textContent = '🙈 隱藏QR Code';
                 
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'click', {
-                        'event_category': 'Backup',
-                        'event_label': 'Show QR Code'
-                    });
-                }
+                gtag('event', 'show_qr_code', {
+                    'event_category': 'Backup_Method',
+                    'event_label': 'Show_QR',
+                    'page_type': 'Landing_Page'
+                });
             } else {
                 qrCode.style.display = 'none';
                 button.textContent = '📱 顯示QR Code';
@@ -543,12 +548,18 @@
         
         // 頁面載入完成後的初始化
         document.addEventListener('DOMContentLoaded', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'page_view', {
-                    'page_title': 'LINE Landing Page - Problem Solver',
-                    'page_location': window.location.href
-                });
-            }
+            gtag('event', 'page_view', {
+                'page_title': 'LINE_Landing_Page_Problem_Solver',
+                'page_location': window.location.href,
+                'page_type': 'Landing_Page'
+            });
+            
+            // 追蹤頁面載入完成
+            gtag('event', 'landing_page_loaded', {
+                'event_category': 'Page_Interaction',
+                'event_label': 'Page_Load_Complete',
+                'page_type': 'Landing_Page'
+            });
         });
     </script>
 </body>
